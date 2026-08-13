@@ -4,12 +4,12 @@ message: >-
   used. A DOI-backed release citation may be added in a future release.
 type: software
 title: >-
-  HRC-HZC: Parameter Identification and Human Body Characterisation for
-  Human-Robot Collaboration
+  BlazeZED-HRC: BlazePose–ZED RGB-D 3D Human Pose and Kinematic Parameter
+  Estimation for Human–Robot Collaboration
 authors:
   - family-names: Huang
     given-names: Zhichao
-repository-code: https://github.com/hzc2052499566-stack/HRC-HZC
+repository-code: https://github.com/hzc2052499566-stack/BlazeZED-HRC
 abstract: >-
   Research software for BlazePose and ZED RGB-D human joint estimation,
   kinematic constraints, validation, and reproducible HRC experiments.
