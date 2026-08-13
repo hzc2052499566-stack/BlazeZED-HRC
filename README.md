@@ -1,10 +1,8 @@
-# HRC-HZC
+# BlazeZED-HRC: BlazePose–ZED RGB-D 3D Human Pose and Kinematic Parameter Estimation for Human–Robot Collaboration
 
-## Parameter Identification and Human Body Characterisation for Human-Robot Collaboration
-
-Public research-code release for estimating human joint positions, limb
-lengths, and kinematic constraints from ZED RGB-D observations in
-human-robot-collaboration (HRC) settings.
+BlazeZED-HRC is a public research-code release for estimating human joint
+positions, limb lengths, and kinematic constraints from ZED RGB-D observations
+in human-robot-collaboration (HRC) settings.
 
 The project baseline is **BlazePose + ZED RGB-D**. ZED SDK `BODY_38` appears
 only as a reference/comparison method; it is neither the baseline nor ground
