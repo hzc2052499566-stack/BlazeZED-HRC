@@ -620,7 +620,10 @@ class DynamicKinematicGTComparatorTests(unittest.TestCase):
             report["comparator_sha256"],
             hashlib.sha256(comparator_path.read_bytes()).hexdigest(),
         )
-        self.assertEqual(Path(temporary_output).parent, output.parent)
+        self.assertEqual(
+            Path(temporary_output).parent.resolve(),
+            output.parent.resolve(),
+        )
         self.assertEqual(Path(committed_output), output.resolve())
         self.assertFalse(Path(temporary_output).exists())
 
