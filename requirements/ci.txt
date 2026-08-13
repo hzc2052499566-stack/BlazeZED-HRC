@@ -1,0 +1,2 @@
+# Required by the explicitly allowlisted portable test suite only.
+numpy==2.4.6

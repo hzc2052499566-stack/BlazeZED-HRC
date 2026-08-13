@@ -1,0 +1,5 @@
+# Portable BlazePose/RGB-D processing dependencies.
+numpy==2.4.6
+mediapipe==0.10.14
+opencv-contrib-python==4.10.0.84
+psutil==7.1.0

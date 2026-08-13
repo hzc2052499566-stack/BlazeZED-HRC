@@ -1,0 +1,101 @@
+name: Bug report
+description: Report a reproducible software defect without uploading private captures.
+title: "[Bug]: "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Do not attach identifiable RGB-D data,
+        SVO/SVO2 recordings, credentials, or restricted simulator assets.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Portable core algorithms
+        - ZED live or SVO replay
+        - Isaac Sim workflow
+        - Analysis or reporting
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem description
+      description: State what happened and why it appears to be a defect.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include exact commands and the smallest non-sensitive input description.
+      placeholder: |
+        1. Check out commit ...
+        2. Install profile ...
+        3. Run ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      description: Commit SHA or release tag where the problem occurs.
+      placeholder: abc1234
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include OS, Python, package profile, and—if relevant—ZED SDK, Isaac Sim, GPU, and camera model.
+      placeholder: |
+        OS: Windows 11
+        Python: 3.11.x
+        Dependency profile: requirements/core.txt
+        ZED SDK / Isaac Sim: not used
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitised logs
+      description: Remove paths, names, images, capture content, serial numbers, and secrets before pasting.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I removed personal, confidential, licensed, and security-sensitive data.
+          required: true
+        - label: I have not described a full hardware/Isaac test run as equivalent to the portable CI suite.
+          required: true

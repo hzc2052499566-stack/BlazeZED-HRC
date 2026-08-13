@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the repository and the exact commit
+  used. A DOI-backed release citation may be added in a future release.
+type: software
+title: >-
+  HRC-HZC: Parameter Identification and Human Body Characterisation for
+  Human-Robot Collaboration
+authors:
+  - family-names: Huang
+    given-names: Zhichao
+repository-code: https://github.com/hzc2052499566-stack/HRC-HZC
+abstract: >-
+  Research software for BlazePose and ZED RGB-D human joint estimation,
+  kinematic constraints, validation, and reproducible HRC experiments.

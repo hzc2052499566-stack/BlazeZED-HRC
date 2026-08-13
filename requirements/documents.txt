@@ -1,0 +1,5 @@
+# Report, slide, and PDF helper scripts. Install only when needed.
+python-docx==1.2.0
+python-pptx==1.0.2
+pypdf==6.12.2
+PyMuPDF==1.27.2.3

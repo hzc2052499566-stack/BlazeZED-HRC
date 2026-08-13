@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "config_name": "hrc_8bone_live_constraints_v2_guarded",
+  "profile_path": "configs/subject_profiles/female_police_live_visual_lite_roi065_wristv5_v2.json",
+  "coordinate_system": "RIGHT_HANDED_Z_UP_X_FWD",
+  "unit": "metre",
+  "variants": {
+    "k0_passthrough": {
+      "description": "Exact raw-coordinate and validity passthrough."
+    },
+    "k1_length_gate": {
+      "description": "Reject the distal endpoint of a bone whose observed length is outside the calibrated tolerance.",
+      "minimum_absolute_tolerance_m": 0.015,
+      "minimum_relative_tolerance": 0.08,
+      "profile_scale_multiplier": 3.0
+    },
+    "k2_soft_projection": {
+      "description": "Unprotected soft projection retained as an ablation only.",
+      "iterations": 6,
+      "stiffness": 0.45,
+      "minimum_deadband_m": 0.005,
+      "relative_deadband": 0.02,
+      "profile_scale_multiplier": 1.0,
+      "maximum_joint_correction_m": 0.04,
+      "confidence_floor": 0.05,
+      "confidence_power": 2.0,
+      "joint_mobility_multipliers": {
+        "root": 0.25,
+        "intermediate": 1.0,
+        "distal": 1.25,
+        "other": 1.0
+      }
+    },
+    "k2_guarded_projection": {
+      "description": "Soft projection only when the complete two-bone limb chain is inside the calibrated length gate.",
+      "skip_raw_gate_violations": true,
+      "skip_connected_chain_on_raw_gate_violation": true,
+      "iterations": 6,
+      "stiffness": 0.45,
+      "minimum_deadband_m": 0.005,
+      "relative_deadband": 0.02,
+      "profile_scale_multiplier": 1.0,
+      "maximum_joint_correction_m": 0.04,
+      "confidence_floor": 0.05,
+      "confidence_power": 2.0,
+      "joint_mobility_multipliers": {
+        "root": 0.25,
+        "intermediate": 1.0,
+        "distal": 1.25,
+        "other": 1.0
+      }
+    }
+  },
+  "design_restrictions": [
+    "Use only with female_police_live_visual_lite_roi065_wristv5_v2.",
+    "Do not use held-out evaluation data or Isaac GT to tune parameters.",
+    "Do not change raw validity in K2g.",
+    "Do not recover an unobserved joint.",
+    "Do not project any part of a two-bone chain containing an out-of-domain bone.",
+    "Cap total per-frame displacement from the raw joint position.",
+    "K0 and K2g must replay the exact same frozen raw tracking rows."
+  ]
+}

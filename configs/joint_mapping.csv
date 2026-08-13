@@ -1,0 +1,16 @@
+canonical_joint,core_evaluation,isaac_joint_suffix,isaac_landmark_definition,zed_body_format,zed_joint_name,zed_joint_index,blazepose_landmark_name,blazepose_index_or_rule,comparison_note
+pelvis,1,/Pelvis,pelvis joint pivot,BODY_38,PELVIS,0,MID_HIP,"midpoint(23,24)",Derived from the two BlazePose hip landmarks
+neck,0,/NeckTwist01,base of neck twist chain,BODY_38,NECK,4,MID_SHOULDER,"midpoint(11,12)",Definitions differ so excluded from core MPJPE
+nose,0,/FacialBone,facial bone pivot used as a face proxy,BODY_38,NOSE,5,NOSE,0,Isaac point is only an approximate nose proxy
+left_shoulder,1,/L_Upperarm,left upper-arm pivot representing shoulder centre,BODY_38,L_SHOULDER,12,LEFT_SHOULDER,11,Subject anatomical left
+right_shoulder,1,/R_Upperarm,right upper-arm pivot representing shoulder centre,BODY_38,R_SHOULDER,13,RIGHT_SHOULDER,12,Subject anatomical right
+left_elbow,1,/L_Forearm,left forearm pivot representing elbow centre,BODY_38,L_ELBOW,14,LEFT_ELBOW,13,Subject anatomical left
+right_elbow,1,/R_Forearm,right forearm pivot representing elbow centre,BODY_38,R_ELBOW,15,RIGHT_ELBOW,14,Subject anatomical right
+left_wrist,1,/L_Hand,left hand pivot representing wrist centre,BODY_38,L_WRIST,16,LEFT_WRIST,15,Subject anatomical left
+right_wrist,1,/R_Hand,right hand pivot representing wrist centre,BODY_38,R_WRIST,17,RIGHT_WRIST,16,Subject anatomical right
+left_hip,1,/Pelvis/L_Thigh,left thigh pivot representing hip centre,BODY_38,L_HIP,18,LEFT_HIP,23,Subject anatomical left
+right_hip,1,/Pelvis/R_Thigh,right thigh pivot representing hip centre,BODY_38,R_HIP,19,RIGHT_HIP,24,Subject anatomical right
+left_knee,1,/L_Thigh/L_Calf,left calf pivot representing knee centre,BODY_38,L_KNEE,20,LEFT_KNEE,25,Subject anatomical left
+right_knee,1,/R_Thigh/R_Calf,right calf pivot representing knee centre,BODY_38,R_KNEE,21,RIGHT_KNEE,26,Subject anatomical right
+left_ankle,1,/L_Calf/L_Foot,left foot pivot representing ankle centre,BODY_38,L_ANKLE,22,LEFT_ANKLE,27,Subject anatomical left
+right_ankle,1,/R_Calf/R_Foot,right foot pivot representing ankle centre,BODY_38,R_ANKLE,23,RIGHT_ANKLE,28,Subject anatomical right

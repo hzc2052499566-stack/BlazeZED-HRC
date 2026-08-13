@@ -1,0 +1,6 @@
+-r core.txt
+
+# Offline plots, OBJ registration experiments, and video utilities.
+matplotlib==3.9.2
+open3d==0.18.0
+imageio-ffmpeg==0.6.0

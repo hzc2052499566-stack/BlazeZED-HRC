@@ -1,0 +1,105 @@
+name: Reproduction report
+description: Record an attempted reproduction, including negative or mixed outcomes.
+title: "[Reproduction]: "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reproduction reports are welcome whether they pass, fail, or are blocked.
+        Preserve protocol and input hashes, and do not upload real-person captures.
+
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Outcome
+      options:
+        - Reproduced
+        - Partially reproduced or mixed
+        - Did not reproduce
+        - Blocked before execution
+    validations:
+      required: true
+
+  - type: dropdown
+    id: execution_class
+    attributes:
+      label: Execution class
+      options:
+        - Portable hardware-free tests
+        - ZED live capture
+        - ZED SVO/SVO2 replay
+        - Isaac Sim
+        - Offline analysis with frozen artifacts
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      description: Exact commit SHA used for the attempt.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Record all relevant software, SDK, driver, GPU, and camera versions.
+    validations:
+      required: true
+
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Input provenance
+      description: Describe inputs, consent status, immutable hashes, and any assets not distributable with the repository. Do not attach private inputs.
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command or procedure
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: result
+    attributes:
+      label: Observed result
+      description: Include denominators, pass/fail gates, exclusions, and failure messages rather than only a headline metric.
+    validations:
+      required: true
+
+  - type: textarea
+    id: hashes
+    attributes:
+      label: Protocol, manifest, and artifact hashes
+      description: Record canonical/content hashes when the workflow defines them.
+      render: text
+
+  - type: textarea
+    id: deviations
+    attributes:
+      label: Deviations from the documented protocol
+      description: Write "None" only if every material condition matched.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I preserved negative, mixed, and blocked outcomes without relabelling them as passes.
+          required: true
+        - label: I did not upload identifiable captures, restricted assets, credentials, or local machine metadata.
+          required: true
+        - label: I distinguished measured joints from inferred completion and portable tests from hardware/simulator tests.
+          required: true
