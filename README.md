@@ -4,6 +4,9 @@ BlazeZED-HRC is a public research-code release for estimating human joint
 positions, limb lengths, and kinematic constraints from ZED RGB-D observations
 in human-robot-collaboration (HRC) settings.
 
+Formal project title: **Parameter Identification and Human Body
+Characterisation for Human-Robot Collaboration**.
+
 The project baseline is **BlazePose + ZED RGB-D**. ZED SDK `BODY_38` appears
 only as a reference/comparison method; it is neither the baseline nor ground
 truth. In simulation, the synchronized Isaac USD Skeleton is the ground truth.
@@ -37,6 +40,11 @@ never overwrites valid measured data.
 
 ## Current evidence at a glance
 
+Public progress synchronized on **2026-10-05**, covering the completed studies
+and latest local artifacts available through **2026-08-31**. Synchronization is
+not a new experiment. See the [Chinese progress snapshot](docs/project_progress_cn.md)
+and [final experiment matrix](docs/final_experiment_matrix.md).
+
 - A synchronized Isaac Sim exporter provides RGB, metric depth, camera
   parameters, and USD Skeleton ground truth.
 - The mapping contract contains 15 canonical joints and 13 core evaluation
@@ -51,6 +59,13 @@ never overwrites valid measured data.
   `BODY_38` comparison replication direction, dual-view real-time gate,
   adaptive-camera accuracy ranking, and the registered robustness gate in the
   weighted limb-length studies.
+- The FS-CTS5 eight-major-limb supplement completed 20/20 formal bundles and
+  24,000 camera frames. Five gate families passed, but G3 failed clean
+  right-thigh P95 non-inferiority; the overall registered contract is negative.
+- Independent cross-character recoveries passed replay exactness checks but
+  found no qualifying camera bank under their frozen selectors. Successor-v4
+  completed 12/12 raw sessions and froze replay-only authority; no replay or
+  downstream scientific result has been recorded for that cohort.
 - Registration of the supplied `mesh.obj` to the real SVO failed held-out
   validation. The mesh is therefore visualization-only; this project reports
   no joint-to-mesh clearance or separation values from that asset.
@@ -75,6 +90,9 @@ Start with:
 - [Documentation index](docs/index.md)
 - [Architecture and data contracts](docs/architecture.md)
 - [Results overview](docs/results_overview.md)
+- [Current progress (Chinese)](docs/project_progress_cn.md)
+- [Final experiment matrix](docs/final_experiment_matrix.md)
+- [Public code update scope](docs/public_code_update.md)
 - [Reproducibility guide](docs/reproducibility.md)
 - [Data availability and privacy](DATA_AVAILABILITY.md)
 - [Software licence and scope](LICENSE_SCOPE.md)
@@ -90,6 +108,7 @@ use Python 3.11 and the minimal dependency profile:
 python -m pip install -r requirements/ci.txt
 python -m compileall -q tools tests
 python tests/portable_suite.py
+python tests/research_components_suite.py
 ```
 
 Additional paths may require MediaPipe/BlazePose, OpenCV, the ZED SDK and

@@ -1,8 +1,9 @@
 # Results overview
 
-This document summarizes the evidence available on 2026-08-13. It is a map,
-not a replacement for the frozen protocol, machine-readable summary, or
-detailed result file for an experiment.
+This document was synchronized on 2026-10-05 against the completed studies and
+local artifacts available through 2026-08-31. It is a map, not a replacement for
+the frozen protocol, machine-readable summary, or detailed result file for an
+experiment. The publication date is not the date of a new experimental run.
 
 ## How to interpret the table
 
@@ -134,6 +135,80 @@ the original formal study exceeded the forearm MAD non-inferiority bound in
 two runs, and the CTS5 follow-up exceeded the upper-arm MAD ratio in `rep_09`.
 Both outcomes are mixed/negative rather than confirmatory passes.
 
+CTS5 is a project method label, not a claimed standard acronym. It applies
+per-view/per-bone bias calibration to scalar limb lengths and robustly combines
+five views: trim the minimum and maximum with five or four eligible views,
+use the median with three, and abstain with fewer than three. FS-CTS5 extends
+that scheme to the bilateral upper arms, forearms, thighs, and shanks: eight
+mapped major segments, not a literal full skeleton.
+
+## FS-CTS5 20-bundle formal supplement
+
+One synthetic female character was evaluated in four frozen scenarios, each
+with five independent captures: clean motion, recoverable arm occlusion,
+recoverable table occlusion, and severe table occlusion. Each capture exported
+240 render steps from five cameras. All 20 bundles completed, providing 24,000
+camera frames and 152,320 comparison rows. Captures, not individual frames, are
+the independent units. All predictions were verified before the first formal
+GT opening.
+
+The primary contrasts were M0 (raw single primary view), M1 (raw available-view
+uniform mean), M2 (bias-calibrated uniform mean), and M3 (FS-CTS5 robust fusion).
+The gates were G1 accuracy, G2 output coverage, G3 per-segment P95
+non-inferiority, G4 accurate-output rate, G5 severe-occlusion abstention, and
+G6 recovery. G1/G2/G4/G5/G6 passed. G3 failed one clean right-thigh cell:
+
+| M3 P95 | M2 P95 | Registered margin | Excess beyond allowed limit |
+|---|---|---|---|
+| 26.509 mm | 23.746 mm | 2.084 mm | 0.680 mm |
+
+The complete registered contract is therefore **negative**, despite improved
+average accuracy and other passed gates. Thresholds must not be widened after
+observing this result. See the [aggregate gate summary](../results/fs_cts5_20_bundle_summary.json).
+
+## FS-CTS5 cross-character industrial supplement
+
+The first canonical same-input replay remains a preserved engineering failure:
+worker 11 completed its payload but failed at directory promotion, later workers
+were sequence-gated, exact QC was not run, and the selector was never called.
+Its status remains `FAIL_sealed_replay_preserved_no_rerun`.
+
+An independently frozen prospective recovery used a different write-once
+destination. It completed 24/24 fresh workers with unique kernel process
+identities and passed 12/12 same-input binary-exact sessions. The three selector
+matrices contained 832,896 registered bits. The frozen selector was then called
+exactly once and returned a registered negative: 0 of 6,126,120 candidate pairs
+passed all hard gates in all three repeats. Coverage rejected 4,934,215 pairs and
+recoverable-event replication rejected the remaining 1,191,905.
+
+No view bank was authorized: `selected_view_ids`, `bank_view_ids`, and `m0_view_id`
+are null. Confirmatory remains 0/12, excluded calibration remains 0/12, and formal
+remains 0/36; overlay and G2 were not executed. This is a selector-level negative,
+not a result for the planned 36-bundle method comparison. The old canonical
+engineering failure and the new registered selector negative are separate records
+and must not be pooled. See the
+[terminal result](fs_cts5_common_bank_randomized_block_science_recovery_v3_terminal_results_cn.md).
+
+## Cross-character successor probes
+
+Successor-v3 repeated the same scientific boundary with an independent layout.
+Its canonical raw capture completed 8/8, while the original long-path replay failed
+before inference because of Windows `MAX_PATH`. A separately frozen short-path
+recovery then completed 16/16 workers and passed 8/8 A/B exact-QC sessions. Its one
+registered selector call audited 2,704,156 subsets and found zero qualifying subsets.
+This is a selector-level scientific negative; the earlier canonical replay failure
+remains a separate engineering record.
+
+Successor-v4 `v4p1r6` has completed 12/12 fresh raw sessions and independent full
+validation. Its replay-only authority was subsequently frozen on 2026-08-28
+(`postcapture_replay_lock.json`, file SHA-256
+`7067dbd68055071425b3bc43b7e6f5444846a451f30779becc3698d850ff3d6d`).
+The lock permits a 24-worker A/B replay, but the derived directory contains no
+worker output or replay closeout. Selector and formal authority remain false.
+No selector, calibration, confirmatory or formal result exists for this cohort.
+It is engineering progress and future-work material, not evidence needed to
+complete the current report.
+
 ## Global claim boundaries
 
 1. The baseline is BlazePose + ZED RGB-D.
@@ -146,6 +221,8 @@ Both outcomes are mixed/negative rather than confirmatory passes.
 6. Offline or component throughput is not camera-to-output FPS.
 7. A failed overall gate remains failed even when a secondary endpoint improves.
 8. Failed OBJ registration prohibits clearance claims.
+9. A selector terminal failure does not authorize manual near-miss selection,
+   threshold changes, a second selector call, or downstream capture.
 
 ## Evidence availability
 

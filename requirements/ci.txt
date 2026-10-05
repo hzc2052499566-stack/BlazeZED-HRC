@@ -1,2 +1,2 @@
-# Required by the explicitly allowlisted portable test suite only.
+# Required by the explicit portable and supplemental research-component suites.
 numpy==2.4.6

@@ -35,6 +35,10 @@ dist/
 # Generated experiment products and scratch space
 /output/
 /tmp/
+/.review_tmp/
+/paper_rewriting_output/
+/translation_work/
+/*.docx
 /lab_session_*/
 /captures/
 /recordings/

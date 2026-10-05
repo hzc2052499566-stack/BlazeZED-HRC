@@ -26,6 +26,7 @@ Use Python 3.11. For the hosted-CI-equivalent environment:
 python -m pip install -r requirements/ci.txt
 python -m compileall -q tools tests
 python tests/portable_suite.py
+python tests/research_components_suite.py
 ```
 
 Install `requirements/core.txt`, `requirements/analysis.txt`, or
@@ -38,6 +39,11 @@ be added as ordinary PyPI dependencies.
 `tests/portable_suite.py` explicitly loads 23 audited hardware-free modules
 (213 tests at the initial public release). This is the required GitHub CI
 scope; adding a test file does not silently add it to that allowlist.
+
+`tests/research_components_suite.py` adds a separate explicit allowlist for
+publication-cleared numerical and selector components. It is also run in hosted
+CI and uses synthetic fixtures, not private captures. Neither suite establishes
+scientific replication of a frozen study.
 
 The public repository intentionally omits hardware-only tests, governed input
 artifacts, and some frozen-lineage checks from the private research workspace.

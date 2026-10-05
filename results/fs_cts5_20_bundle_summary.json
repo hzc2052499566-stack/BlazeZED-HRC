@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "publication_sync_date": "2026-10-05",
+  "source_report_sha256": "e7aa98c2fbac63528f69a8e9d0d533026482c2f127442af0eaea610f1857b637",
+  "source_report_name": "formal_results_report_v1.json",
+  "classification": "publication_cleared_aggregate_summary_not_raw_data",
+  "status": "FAIL_FS_CTS5_formal_contract_v1",
+  "formal_contract_met": false,
+  "formal_bundle_count": 20,
+  "independent_unit": "capture",
+  "characters": "one_synthetic_female_character",
+  "scenarios": [
+    "S0_clean_full_body",
+    "S1_recoverable_arm_occlusion",
+    "S2_recoverable_table_occlusion",
+    "S3_severe_table_occlusion"
+  ],
+  "independent_captures_per_scenario": 5,
+  "render_steps_per_capture": 240,
+  "camera_views_per_step": 5,
+  "camera_frame_count": 24000,
+  "comparison_row_count": 152320,
+  "prediction_bundles_all_verified_before_first_GT_open": true,
+  "methods": {
+    "M0": "raw_single_primary_view",
+    "M1": "raw_available_view_uniform_scalar_mean",
+    "M2": "per_view_per_bone_bias_calibrated_uniform_scalar_mean",
+    "M3": "FS_CTS5_bias_calibrated_robust_scalar_fusion"
+  },
+  "gate_families": {
+    "G1_accuracy": true,
+    "G2_output_coverage": true,
+    "G3_per_segment_P95_noninferiority": false,
+    "G4_accurate_output_rate": true,
+    "G5_severe_occlusion_abstention": true,
+    "G6_recovery": true
+  },
+  "failed_cell": {
+    "scenario": "S0_clean_full_body",
+    "bone": "right_thigh",
+    "M3_capture_balanced_P95_mm": 26.509315984094098,
+    "M2_capture_balanced_P95_mm": 23.745714755967573,
+    "registered_margin_mm": 2.083820311301134,
+    "excess_over_allowed_limit_mm": 0.679780916825391
+  },
+  "claim_boundaries": [
+    "Eight mapped major limb segments, not a literal full skeleton.",
+    "Single-character synthetic evidence, not real or multi-person validation.",
+    "One failed registered gate keeps the complete contract negative.",
+    "Capture counts, not camera frames or comparison rows, define independence.",
+    "This summary does not authorize retries, threshold changes or downstream captures."
+  ]
+}

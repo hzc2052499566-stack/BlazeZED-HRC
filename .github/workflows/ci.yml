@@ -39,3 +39,6 @@ jobs:
 
       - name: Run audited portable suite
         run: python tests/portable_suite.py
+
+      - name: Run supplemental research-component suite
+        run: python tests/research_components_suite.py

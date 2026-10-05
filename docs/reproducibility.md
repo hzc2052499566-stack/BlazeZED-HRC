@@ -25,6 +25,7 @@ From the repository root:
 python -m pip install -r requirements/ci.txt
 python -m compileall -q tools tests
 python tests/portable_suite.py
+python tests/research_components_suite.py
 ```
 
 This explicit 23-module allowlist runs 213 tests and is the required hosted CI
@@ -32,6 +33,16 @@ scope. It was validated from a clean tree with no `output/` directory. The
 private research workspace contains additional SDK, media, experiment-specific,
 and frozen-lineage checks; do not describe this curated CI result as a pass of
 that unreleased full workspace.
+
+The 2026-10-05 update adds a separate supplemental research-component allowlist,
+also run in CI. Its synthetic tests cover released geometry, schedule, occlusion
+and selector logic; they do not require private experiment assets. See the
+[public code update scope](public_code_update.md). Git text normalization does
+not replace original frozen-file hash verification.
+
+The supplemental allowlist ran 400 tests across 17 modules in the isolated
+staged-tree check; together with the original suite, 613 tests passed. No private
+capture, simulator or live-camera experiment was rerun as part of publication.
 No single frozen dependency manifest covers every tier. Use the profiles in
 [`requirements/`](../requirements/README.md), and record the actual
 interpreter, package versions, SDK, GPU/driver, and simulator build for any new
@@ -188,3 +199,18 @@ A useful replication note should include:
 Do not replace a negative contract with a positive secondary endpoint. A later
 follow-up can add evidence, but the original frozen outcome remains part of
 the record.
+
+## Cross-character randomized-block terminal branch
+
+The first canonical same-input replay remains an immutable engineering failure:
+`FAIL_sealed_replay_preserved_no_rerun`. It must not be resumed, promoted, or
+pooled with later work. The independently frozen `rpr_v1` destination completed
+24/24 fresh workers and passed 12/12 binary-exact A/B checks before the frozen
+v8 selector was called exactly once.
+
+That selector returned zero qualifying pairs among 6,126,120 candidates and
+sealed `FAIL_v8_selector_no_authorized_bank`. Reproduction therefore ends at
+the selector gate: do not rerun the selector, widen thresholds, recover a
+near-miss bank, or execute the unauthorized confirmatory, calibration, or
+36-bundle formal stages. The auditable terminal record is
+[`fs_cts5_common_bank_randomized_block_science_recovery_v3_terminal_results_cn.md`](fs_cts5_common_bank_randomized_block_science_recovery_v3_terminal_results_cn.md).

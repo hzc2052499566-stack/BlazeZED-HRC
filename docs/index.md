@@ -13,6 +13,14 @@ reported positive, mixed, negative, aborted, or exploratory result.
   provenance, and evaluation contracts
 - [Results overview](results_overview.md) — consolidated positive, mixed,
   negative, and engineering-only findings
+- [Current progress (Chinese)](project_progress_cn.md) — current work-package
+  status, report preparation, remaining work, and public-release boundaries
+- [Final experiment matrix](final_experiment_matrix.md) — research questions,
+  comparisons, independent units, outcomes, and report placement
+- [Public code update scope](public_code_update.md) — additional analysis and
+  numerical components, tests, and unreleased dependencies
+- [FS-CTS5 cross-character `rpr_v1` terminal result](fs_cts5_common_bank_randomized_block_science_recovery_v3_terminal_results_cn.md)
+  — independent replay completion, exact-QC pass, and registered selector negative
 - [Reproducibility](reproducibility.md) — environment tiers, frozen inputs,
   replay rules, and validation workflow
 - [Data availability](../DATA_AVAILABILITY.md) — release classes, privacy, and
